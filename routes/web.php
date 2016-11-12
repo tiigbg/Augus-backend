@@ -66,9 +66,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::resource('texts', 'TextController');
 
-	Route::get('/upload', function() {
-		return view('upload-image');
-	});
 	Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
     Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
+
+    Route::resource('images', 'ImageController');
 });

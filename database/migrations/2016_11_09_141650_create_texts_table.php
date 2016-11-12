@@ -16,11 +16,12 @@ class CreateTextsTable extends Migration
         Schema::create('texts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable();
+            $table->enum('parent_type', ['section', 'image']);
             $table->enum('type', ['title', 'body']);
             $table->string('text');
             $table->string('language');
             $table->timestamps();
-            $table->unique( array('parent_id','type', 'language') );
+            $table->unique( array('parent_id', 'parent_type','type', 'language') );
         });
     }
 

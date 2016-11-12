@@ -81,7 +81,6 @@
             <div class="row">
                 <div class="col-md-4">
                     @section('sidemenu')
-                        This is the sidemenu.
                     @show
                 </div>
                 <div class="col-md-8">

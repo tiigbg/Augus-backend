@@ -38,6 +38,7 @@ class TextController extends Controller
         $text = new Text;
 
         $text->parent_id = $request->parent_id;
+        $text->parent_type = $request->parent_type;
         $text->type = $request->type;
         $text->language = $request->language;
         $text->text = $request->text;

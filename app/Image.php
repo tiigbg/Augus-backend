@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    public function description()
+    public function texts()
     {
-        return $this->hasMany('App\Text', 'parent_id');
+        return $this->hasMany('App\Text', 'parent_id')->where('parent_type','=','image');
     }
 
     public function parent()

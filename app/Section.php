@@ -13,12 +13,12 @@ class Section extends Model
 
     public function titles()
     {
-        return $this->hasMany('App\Text', 'parent_id')->where('type','=','title');
+        return $this->hasMany('App\Text', 'parent_id')->where('type','=','title')->where('parent_type','=','section');
     }
 
     public function texts()
     {
-        return $this->hasMany('App\Text', 'parent_id')->where('type','=','body');
+        return $this->hasMany('App\Text', 'parent_id')->where('type','=','body')->where('parent_type','=','section');
     }
 
     public function audios()

@@ -8,6 +8,7 @@
         <form v-if="editmode" v-bind:action="action" method="POST">
             <input type="text" name="text" v-bind:value="text" />
             <input type="hidden" name="type" v-bind:value="type" />
+            <input type="hidden" name="parent_type" v-bind:value="parent_type" />
             <input type="text" name="language" v-bind:value="language" size="2"/>
             <input type="submit" name="submit" value="Add"/>
             <input type="hidden" name="_token" v-bind:value="csrf_token">
@@ -27,6 +28,6 @@
         mounted() {
             console.log('Component ready.')
         },
-        props: ['button', 'type', 'text', 'language', 'parent_id', 'action', 'csrf_token', 'method']
+        props: ['button', 'type', 'text', 'language', 'parent_id', 'parent_type', 'action', 'csrf_token', 'method']
     }
 </script>

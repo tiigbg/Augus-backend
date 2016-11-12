@@ -7,13 +7,19 @@ use App\Image;
 class ImageController extends Controller
 {
     /**
-    * Create view file
-    *
-    * @return void
-    */
-    public function getImage()
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return view('upload-image');
+        $image = Image::find($id);
+        $data = [
+            'image' => $image,
+            'texts' => $image->texts
+         ];
+        return view('image', $data);
     }
     /**
     * Manage Post Request

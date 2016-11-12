@@ -27,6 +27,7 @@
                 text=""
                 language=""
                 parent_id="{{ $section->id }}"
+                parent_type="section"
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
@@ -55,6 +56,7 @@
                 text=""
                 language=""
                 parent_id="{{ $section->id }}"
+                parent_type="section"
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
@@ -77,6 +79,7 @@
                                     text=""
                                     language=""
                                     parent_id="{{ $child->id }}"
+                                    parent_type="section"
                                     action="{{ route('texts.store') }}"
                                     csrf_token="{{ csrf_token() }}" 
                                     method="POST"></addtextbutton>
@@ -124,9 +127,16 @@
                 </div>
             {!! Form::close() !!}
 
+  
+            <div class="row">
             @foreach($images as $image)
-                <img src="/images/{{$image->file}}">
+                <div class="col-xs-6 col-md-3">
+                    <a href="{{ route('images.show', $image->id) }}" class="thumbnail">
+                        <img src="/images/{{$image->file}}">
+                    </a>
+                </div>
             @endforeach
+            </div>
         </div>
     </div>
 @endsection

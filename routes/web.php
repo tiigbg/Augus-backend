@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
 			'section' => $section,
 			'children' => $section->children,
 			'titles' => $section->titles,
-			'texts' => $section->texts
+			'texts' => $section->texts,
+			'images' => $section->images
 		 ];
 		return view('section', $data);
 	});
@@ -65,9 +66,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::resource('texts', 'TextController');
 
-
-	Route::get('upload', function() {
-	  return View::make('upload');
+	Route::get('/upload', function() {
+		return view('upload-image');
 	});
-	Route::post('apply/upload', 'ApplyController@upload');
+	Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
+    Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
 });

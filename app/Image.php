@@ -8,7 +8,7 @@ class Image extends Model
 {
     public function description()
     {
-        return $this->hasOne('App\Text', 'parent_id');
+        return $this->hasMany('App\Text', 'parent_id');
     }
 
     public function parent()

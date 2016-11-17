@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <button v-if="!sure" v-on:click="sure=true" >{{ button }}</button>
+    <span class="deletebutton">
+    <span v-bind:class="buttonicon" aria-hidden="true"></span>
+        <button v-if="!sure" v-on:click="sure=true" >
+            <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
+            {{ button }}
+        </button>
         <form v-if="sure" v-bind:action="action" method="POST">
             Delete including all contents, are you sure?
             <input type="submit" name="submit" value="Yes"></input>
@@ -9,7 +13,7 @@
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="id" v-bind:value="sectionid">
         </form>
-    </div>
+    </span>
 </template>
 
 <script>
@@ -29,7 +33,8 @@
             },
             action: String,
             csrf_token: String,
-            sectionid: String
+            sectionid: String,
+            icon: String
         }
     }
 </script>

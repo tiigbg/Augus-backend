@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+deletetextbutton form {
+  display: inline; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5765,5 +5768,15 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.deletetextbutton {
+  float: right; }
+
+.deletetextbutton form {
+  display: inline; }
+
+.deletebutton {
+  float: right;
+  display: block; }
 
 /*# sourceMappingURL=app.css.map */

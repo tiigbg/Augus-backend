@@ -1,12 +1,15 @@
 <template>
     
-    <div>
+    <span class="deletetextbutton">
         <form v-bind:action="action" method="POST">
-            <input type="submit" name="submit" v-bind:value="button"/>
+            <button type="submit" name="submit">
+                <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
+                {{ button }}
+            </button>
             <input type="hidden" name="_token" v-bind:value="csrf_token">
             <input type="hidden" name="_method" v-bind:value="method">
         </form>
-    </div>
+    </span>
 </template>
 
 <script>
@@ -21,7 +24,8 @@
             },
             action: String,
             csrf_token: String,
-            method: String
+            method: String,
+            icon: String
         }
     }
 </script>

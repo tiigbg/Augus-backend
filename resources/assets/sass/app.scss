@@ -9,3 +9,21 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 
+
+// Vue components
+
+.deletetextbutton {
+	float:right;
+}
+.deletetextbutton form {
+	display: inline;
+}
+
+.deletebutton {
+	float: right;
+	display: block;
+}
+
+.deletebutton form {
+	
+}

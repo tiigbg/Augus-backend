@@ -7,14 +7,27 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
+            <div class="row">
+            <div class="col-md-12">
+                <deletebutton
+                    button="Delete section"
+                    icon="glyphicon glyphicon-trash"
+                    action="{{ route('deleteSection') }}"
+                    sectionid="{{ $section->id }}"
+                    csrf_token="{{ csrf_token() }}" >
+                </deletebutton>
+            </div>
+            </div>
             @foreach($titles as $title)
-                <h1>{{ $title->language }}:{{ $title->text }}</h1>
+                <h1>{{ $title->language }}:{{ $title->text }}
                 <deletetextbutton
-                    button="Delete title"
+                    button=""
+                    icon="glyphicon glyphicon-trash"
                     action="{{ route('texts.destroy', $title->id) }}"
                     csrf_token="{{ csrf_token() }}" 
                     method="DELETE">
                 </deletetextbutton>
+                </h1>
             @endforeach
             @if (sizeof($section->titles)==0)
             <h1>
@@ -31,20 +44,14 @@
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
-
-        	<deletebutton
-                button="Delete section"
-        		action="{{ route('deleteSection') }}"
-        		sectionid="{{ $section->id }}"
-        		csrf_token="{{ csrf_token() }}" >
-    		</deletebutton>
         </div>
 
         <div class="panel-body">
             @foreach($texts as $text)
                 <div>{{ $text->language }}:{{ $text->text }}</div>
                 <deletetextbutton
-                    button="Delete text"
+                    button=""
+                    icon="glyphicon glyphicon-trash"
                     action="{{ route('texts.destroy', $text->id) }}"
                     csrf_token="{{ csrf_token() }}" 
                     method="DELETE">
@@ -84,6 +91,8 @@
                                     csrf_token="{{ csrf_token() }}" 
                                     method="POST"></addtextbutton>
 			                	<deletebutton
+                                    button=""
+                                    icon="glyphicon glyphicon-trash"
 			                		action="{{ route('deleteSection') }}"
 			                		sectionid="{{ $child->id }}"
 			                		csrf_token="{{ csrf_token() }}" >

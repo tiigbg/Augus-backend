@@ -90,7 +90,6 @@ class TextController extends Controller
      */
     public function destroy($id)
     {
-        // TODO delete any possible children
         Text::find($id)->delete();
         return back();
     }

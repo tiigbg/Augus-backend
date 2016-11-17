@@ -29,7 +29,7 @@ class ImageController extends Controller
     public function postImage(Request $request)
     {
         $this->validate($request, [
-            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
         $imageName = time().'.'.$request->image_file->getClientOriginalExtension();
         $request->image_file->move(public_path('images'), $imageName);

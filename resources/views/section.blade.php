@@ -5,6 +5,24 @@
 @endsection
 
 @section('content')
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">
@@ -106,35 +124,14 @@
         		parent_id="{{ $section->id }}"
         		csrf_token="{{ csrf_token() }}" >
     		</newsectionbutton>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-            </div>
-            @endif
-
-            {!! Form::open(array('route' => 'postimage','files'=>true)) !!}
-                <div class="row">
-                    <div class="col-md-6">
-                        {!! Form::file('image_file', array('class' => 'form-control')) !!}
-                        <input type="hidden" name="parent_id" value="{{ $section->id }}">
-                    </div>
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-success">Upload</button>
-                    </div>
-                </div>
-            {!! Form::close() !!}
-
+            
+            <addfilebutton
+                button="Add image"
+                name="image_file"
+                action="{{ route('postimage') }}"
+                method="POST"
+                csrf_token="{{ csrf_token() }}"
+                parent_id="{{ $section->id }}"></addfilebutton>
   
             <div class="row">
             @foreach($images as $image)

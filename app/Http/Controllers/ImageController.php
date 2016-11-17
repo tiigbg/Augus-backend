@@ -43,4 +43,16 @@ class ImageController extends Controller
             ->with('success','You have successfully upload images.')
             ->with('image',$imageName);
     }
+
+    public function destroy($id)
+    {
+        $image = Image::find($id);
+        $texts = $image->texts()->get();
+        foreach ($texts as $text) {
+            App('App\Http\Controllers\TextController')->destroy($text->id);
+        }
+        $section_id = $image->parent_id;
+        $image->delete();
+        return redirect('/section/'.$section_id);
+    }
 }

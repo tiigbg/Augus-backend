@@ -39,7 +39,7 @@ class SectionController extends Controller
     		$this->delete($new_request);
     	}
     	$section = Section::find($request->id);
-    	$titles = $section->titles();
+    	$titles = $section->titles()->get();
     	// TODO delete all linked content
     	$section->delete();
     	return redirect('exhibitions');

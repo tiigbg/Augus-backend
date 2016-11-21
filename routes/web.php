@@ -49,7 +49,9 @@ Route::group(['middleware' => ['auth']], function() {
 			'children' => $section->children,
 			'titles' => $section->titles,
 			'texts' => $section->texts,
-			'images' => $section->images
+			'images' => $section->images,
+			'videos' => $section->videos,
+			'audios' => $section->audios
 		 ];
 		return view('section', $data);
 	});
@@ -64,10 +66,12 @@ Route::group(['middleware' => ['auth']], function() {
 	// delete
 	Route::delete('deleteSection', 'SectionController@delete')->name('deleteSection');
 
-	Route::resource('texts', 'TextController');
 
 	Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
     Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
 
+	Route::resource('texts', 'TextController');
     Route::resource('images', 'ImageController');
+    Route::resource('videos', 'VideoController');
+    Route::resource('audios', 'AudioController');
 });

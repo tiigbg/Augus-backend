@@ -40,7 +40,7 @@ class ImageController extends Controller
         $image->save();
 
         return back()
-            ->with('success','You have successfully upload images.')
+            ->with('success','You have successfully uploaded an image.')
             ->with('image',$imageName);
     }
 
@@ -53,6 +53,6 @@ class ImageController extends Controller
         }
         $section_id = $image->parent_id;
         $image->delete();
-        return redirect('/section/'.$section_id);
+        return redirect('/section/'.$section_id)->with('success','Image deleted.');
     }
 }

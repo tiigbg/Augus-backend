@@ -1,7 +1,4 @@
 <template>
-    
-            
-
     <div>
         <span v-if="!editmode" v-on:click="editmode = !editmode">
             <button >{{button}}</button>
@@ -10,6 +7,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <input class="form-control" v-bind:name="name" type="file">
+                    <input v-if="language_enabled" type="text" name="language" value="" size="2"/>
                 </div>
                 <div class="col-md-6">
                     <input type="hidden" name="_token" v-bind:value="csrf_token">
@@ -32,6 +30,6 @@
         mounted() {
             console.log('Component ready.')
         },
-        props: ['button', 'name', 'parent_id', 'action', 'csrf_token', 'method']
+        props: ['button', 'name', 'parent_id', 'action', 'csrf_token', 'method', 'language_enabled']
     }
 </script>

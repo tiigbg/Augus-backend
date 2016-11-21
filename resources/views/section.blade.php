@@ -132,6 +132,24 @@
                 method="POST"
                 csrf_token="{{ csrf_token() }}"
                 parent_id="{{ $section->id }}"></addfilebutton>
+
+            <addfilebutton
+                button="Add video"
+                name="video_file"
+                action="{{ route('videos.store') }}"
+                method="POST"
+                csrf_token="{{ csrf_token() }}"
+                parent_id="{{ $section->id }}"
+                language_enabled="true"></addfilebutton>
+
+            <addfilebutton
+                button="Add Audio"
+                name="audio_file"
+                action="{{ route('audios.store') }}"
+                method="POST"
+                csrf_token="{{ csrf_token() }}"
+                parent_id="{{ $section->id }}"
+                language_enabled="true"></addfilebutton>
   
             <div class="row">
             @foreach($images as $image)
@@ -142,6 +160,40 @@
                 </div>
             @endforeach
             </div>
+
+            videos: {{ sizeof($videos)}}
+            @foreach($videos as $video)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            <a href="{{ route('videos.show', $video->id) }}">
+                                {{$video->language}}: {{$video->file}}
+                            </a>
+                        </p>
+                        <video width="320" height="240" controls>
+                            <source src="/videofiles/{{$video->file}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> 
+                    </div>
+                </div>
+            @endforeach
+
+            audios: {{ sizeof($audios)}}
+            @foreach($audios as $audio)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            <a href="{{ route('audios.show', $audio->id) }}">
+                                {{$audio->language}}: {{$audio->file}}
+                            </a>
+                        </p>
+                        <audio width="320" height="240" controls>
+                            <source src="/audiofiles/{{$audio->file}}" type="audio/mp3">
+                            Your browser does not support the audio tag.
+                        </audio> 
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

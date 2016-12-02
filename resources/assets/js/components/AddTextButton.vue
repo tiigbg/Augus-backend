@@ -55,6 +55,10 @@
                 default: '50'
             },
             parent_id: String,
+            parent_type: {
+                type: String,
+                default: 'section'
+            },
             action: String,
             method: String,
             csrf_token: String

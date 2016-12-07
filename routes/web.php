@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/allexhibitions', 'SectionController@getAllExhibitions');
+
+Route::get('/alldata', 'SectionController@getAllData');
 
 Route::get('profile', function () {
     // Only authenticated users may enter...
@@ -34,7 +37,6 @@ Route::group(['middleware' => ['auth']], function() {
 		#return $exhibitions;
 	})->name('exhibitions');
 
-	Route::get('/allexhibitions', 'SectionController@getAllExhibitions');
 
 	Route::get('/exhibition/{exhibitionId}', function($exhibitionId){
 		$exhibition = App\Section::where('id', '=', $exhibitionId)->first();

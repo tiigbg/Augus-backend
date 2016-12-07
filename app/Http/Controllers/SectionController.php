@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Section;
+use App\Text;
+use App\Image;
+use App\Audio;
+use App\Video;
 
 class SectionController extends Controller
 {
@@ -46,7 +50,17 @@ class SectionController extends Controller
     }
 
     public function getAllExhibitions(Request $request) {
-    	return Section::whereNull('parent_id')->with('titles')->get();
+        return array('exhibitions' => Section::whereNull('parent_id')->with('titles')->get());
+    }
+
+    public function getAllData(Request $request) {
+        return array(
+            'nodes' => Section::all(),
+            'texts' => Text::all(),
+            'images' => Image::all(),
+            'audio' => Audio::all(),
+            'video' => Video::all(),
+            );
     }
 
     public function getChildren(Request $request, $parent_id) {

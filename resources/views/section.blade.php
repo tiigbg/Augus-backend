@@ -23,6 +23,12 @@
         </div>
     @endif
 
+    @if ($section->parent_id)
+        <a href="{{ '/section/'.$section->parent_id }}">&lt; Back</a>
+    @else
+        <a href="{{ '/exhibitions/' }}">&lt; Exhibitions</a>
+    @endif
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">

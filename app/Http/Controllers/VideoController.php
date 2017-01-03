@@ -49,10 +49,6 @@ class VideoController extends Controller
     */
     public function store(Request $request)
     {
-        //return "nej";
-        //echo "derp";
-        //return redirect('/section/'.$section_id)->with('success','Video added.');
-        
         $this->validate($request, [
             'video_file' => 'required|mimes:mp4,avi|max:50000',
         ]);

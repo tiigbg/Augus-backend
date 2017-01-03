@@ -151,6 +151,15 @@
                 language_enabled="true"></addfilebutton>
 
             <addfilebutton
+                button="Add signlanguage video"
+                name="signlanguage_file"
+                action="{{ route('signlanguages.store') }}"
+                method="POST"
+                csrf_token="{{ csrf_token() }}"
+                parent_id="{{ $section->id }}"
+                language_enabled="true"></addfilebutton>
+
+            <addfilebutton
                 button="Add Audio"
                 name="audio_file"
                 action="{{ route('audios.store') }}"

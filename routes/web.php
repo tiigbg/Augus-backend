@@ -75,5 +75,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('texts', 'TextController');
     Route::resource('images', 'ImageController');
     Route::resource('videos', 'VideoController');
+    Route::resource('signlanguages', 'SignlanguageController');
     Route::resource('audios', 'AudioController');
 });

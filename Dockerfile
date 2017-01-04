@@ -41,13 +41,15 @@ RUN echo "extension=php_mbstring.dll" >> /etc/php/7.0/apache2/php.ini
 RUN /usr/local/bin/composer install
 
 # Ensure the right permissions
-RUN /bin/chown www-data:www-data -R /var/www/laravel/storage /var/www/laravel/bootstrap/cache
+RUN /bin/chown www-data:www-data -R /var/www/laravel/storage /var/www/laravel/bootstrap/cache 
 
 # Run gulp with production flag (no watch etc)
 RUN gulp --production
 
 # Expose ports. TODO: Add SSL support and expose port 443
 EXPOSE 80
+
+VOLUME ["/var/www/laravel/storage/app/uploads"]
 
 # Update DB structure from models and start webserver
 # CMD are only executed when the container is started, while RUN is done when the container is initally built

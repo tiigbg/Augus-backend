@@ -172,7 +172,7 @@
             @foreach($images as $image)
                 <div class="col-xs-6 col-md-3">
                     <a href="{{ route('images.show', $image->id) }}" class="thumbnail">
-                        <img src="/images/{{$image->file}}">
+                        <img src="{{ '../imageFile/'.$image->id }}">
                     </a>
                 </div>
             @endforeach
@@ -188,7 +188,7 @@
                             </a>
                         </p>
                         <video width="320" height="240" controls>
-                            <source src="/videofiles/{{$video->file}}" type="video/mp4">
+                            <source src="{{ '../videoFile/'.$video->id }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video> 
                     </div>
@@ -205,7 +205,7 @@
                             </a>
                         </p>
                         <audio width="320" height="240" controls>
-                            <source src="/audiofiles/{{$audio->file}}" type="audio/mp3">
+                            <source src="{{ '../audioFile/'.$audio->id }}" type="audio/mp3">
                             Your browser does not support the audio tag.
                         </audio> 
                     </div>

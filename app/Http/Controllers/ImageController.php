@@ -1,11 +1,22 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Image;
+use Storage;
 
 class ImageController extends Controller
 {
+
+    public function imageFile($id)
+    {
+        $image = Image::find($id);
+        $contents = Storage::disk('local')->get('uploads/images/'.$image->file);
+        $response = Response($contents);
+        $response->header('Content-Type', 'image');
+        return $response;
+    }
     /**
      * Display the specified resource.
      *
@@ -32,7 +43,8 @@ class ImageController extends Controller
             'image_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
         $imageName = time().'.'.$request->image_file->getClientOriginalExtension();
-        $request->image_file->move(public_path('images'), $imageName);
+        
+        $request->image_file->move(storage_path('app/uploads/images'), $imageName);
 
         $image = new Image;
         $image->parent_id = $request->parent_id;

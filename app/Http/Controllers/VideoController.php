@@ -2,9 +2,18 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Video;
+use Storage;
 
 class VideoController extends Controller
 {
+    public function videoFile($id)
+    {
+        $video = Video::find($id);
+        $contents = Storage::disk('local')->get('uploads/video/'.$video->file);
+        $response = Response($contents);
+        $response->header('Content-Type', 'video');
+        return $response;
+    }
     /**
      * Display the specified resource.
      *
@@ -53,7 +62,7 @@ class VideoController extends Controller
             'video_file' => 'required|mimes:mp4,avi|max:50000',
         ]);
         $videoName = time().'.'.$request->video_file->getClientOriginalExtension();
-        $request->video_file->move(public_path('videofiles'), $videoName);
+        $request->video_file->move(storage_path('app/uploads/video'), $videoName);
 
         $video = new Video;
         $video->parent_id = $request->parent_id;

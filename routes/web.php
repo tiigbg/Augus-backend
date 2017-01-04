@@ -27,6 +27,12 @@ Route::get('profile', function () {
 Auth::routes();
 
 
+Route::get('imageFile/{id}','ImageController@imageFile');
+Route::get('audioFile/{id}','AudioController@audioFile');
+Route::get('videoFile/{id}','VideoController@videoFile');
+Route::get('signlanguageFile/{id}','SignlanguageController@signlanguageFile');
+
+
 Route::group(['middleware' => ['auth']], function() {
 	
 	Route::get('/home', 'HomeController@index');
@@ -71,6 +77,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
     Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
+
 
 	Route::resource('texts', 'TextController');
     Route::resource('images', 'ImageController');

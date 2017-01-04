@@ -39,5 +39,6 @@
     		</deletebutton>
         </div>
         <img src="/images/{{$image->file}}">
+        <img src="{{ '../imageFile/'.$image->id }}">
     </div>
 @endsection

@@ -2,10 +2,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Audio;
+use Storage;
 
 
 class AudioController extends Controller
 {
+    public function audioFile($id)
+    {
+        $audio = Audio::find($id);
+        $contents = Storage::disk('local')->get('uploads/audio/'.$audio->file);
+        $response = Response($contents);
+        $response->header('Content-Type', 'audio');
+        return $response;
+    }
     /**
      * Display the specified resource.
      *
@@ -60,7 +69,7 @@ class AudioController extends Controller
 
 
         $audioName = time().'.'.$request->audio_file->getClientOriginalExtension();
-        $request->audio_file->move(public_path('audiofiles'), $audioName);
+        $request->audio_file->move(storage_path('app/uploads/audio'), $audioName);
 
         $audio = new Audio;
         $audio->parent_id = $request->parent_id;

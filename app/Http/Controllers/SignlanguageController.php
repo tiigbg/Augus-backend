@@ -2,9 +2,18 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Signlanguage;
+use Storage;
 
 class SignlanguageController extends Controller
 {
+    public function signlanguageFile($id)
+    {
+        $signlanguage = Signlanguage::find($id);
+        $contents = Storage::disk('local')->get('uploads/signlanguage/'.$signlanguage->file);
+        $response = Response($contents);
+        $response->header('Content-Type', 'video');
+        return $response;
+    }
     /**
      * Display the specified resource.
      *
@@ -53,8 +62,8 @@ class SignlanguageController extends Controller
             'signlanguage_file' => 'required|mimes:mp4,avi,mov|max:50000',
         ]);
         $signlanguageName = time().'.'.$request->signlanguage_file->getClientOriginalExtension();
-        $request->signlanguage_file->move(public_path('signlanguagefiles'), $signlanguageName);
-
+        $request->signlanguage_file->move(storage_path('app/uploads/signlanguage'), $signlanguageName);
+        
         $signlanguage = new Signlanguage;
         $signlanguage->parent_id = $request->parent_id;
         $signlanguage->language = $request->language;

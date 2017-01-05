@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/allexhibitions', 'SectionController@getAllExhibitions');
 
@@ -35,7 +33,7 @@ Route::get('signlanguageFile/{id}','SignlanguageController@signlanguageFile');
 
 Route::group(['middleware' => ['auth']], function() {
 	
-	Route::get('/home', 'HomeController@index');
+	Route::get('/', 'HomeController@index');
 	
 	Route::get('/exhibitions', function(){
 		$exhibitions = App\Section::whereNull('parent_id')->get();

@@ -3,7 +3,7 @@
         <div class="panel-body">
             <ul>
                 <li>
-                    <a href="{{ url('/home') }}" > 
+                    <a href="{{ url('/') }}" > 
                         Dashboard
                     </a>
                 </li>

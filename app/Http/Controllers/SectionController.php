@@ -8,6 +8,7 @@ use App\Text;
 use App\Image;
 use App\Audio;
 use App\Video;
+use App\Signlanguage;
 
 class SectionController extends Controller
 {
@@ -60,6 +61,7 @@ class SectionController extends Controller
             'images' => Image::all(),
             'audio' => Audio::all(),
             'video' => Video::all(),
+            'signlanguages' => Signlanguage::all(),
             );
     }
 

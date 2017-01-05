@@ -31,6 +31,11 @@ class Section extends Model
         return $this->hasMany('App\Video', 'parent_id');
     }
 
+    public function signlanguages()
+    {
+        return $this->hasMany('App\Signlanguage', 'parent_id');
+    }
+
     public function images()
     {
         return $this->hasMany('App\Image', 'parent_id');

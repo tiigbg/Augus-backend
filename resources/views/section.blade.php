@@ -178,6 +178,23 @@
             @endforeach
             </div>
 
+            signlanguages: {{ sizeof($signlanguages)}}
+            @foreach($signlanguages as $signlanguage)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            <a href="{{ route('signlanguages.show', $signlanguage->id) }}">
+                                {{$signlanguage->language}}: {{$signlanguage->file}}
+                            </a>
+                        </p>
+                        <video width="320" height="240" controls>
+                            <source src="{{ '../signlanguageFile/'.$signlanguage->id }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> 
+                    </div>
+                </div>
+            @endforeach
+
             videos: {{ sizeof($videos)}}
             @foreach($videos as $video)
                 <div class="panel panel-default">

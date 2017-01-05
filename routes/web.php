@@ -57,7 +57,8 @@ Route::group(['middleware' => ['auth']], function() {
 			'texts' => $section->texts,
 			'images' => $section->images,
 			'videos' => $section->videos,
-			'audios' => $section->audios
+			'audios' => $section->audios,
+			'signlanguages' => $section->signlanguages,
 		 ];
 		return view('section', $data);
 	});

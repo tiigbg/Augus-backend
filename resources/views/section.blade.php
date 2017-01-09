@@ -195,7 +195,12 @@
                         <video width="320" height="240" controls>
                             <source src="{{ '../signlanguageFile/'.$signlanguage->id }}" type="video/mp4">
                             Your browser does not support the video tag.
-                        </video> 
+                        </video>
+                        <deletebutton
+                            button="Delete signlanguage"
+                            action="{{ route('signlanguages.destroy', $signlanguage->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
                     </div>
                 </div>
             @endforeach
@@ -213,6 +218,11 @@
                             <source src="{{ '../videoFile/'.$video->id }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video> 
+                        <deletebutton
+                            button="Delete video"
+                            action="{{ route('videos.destroy', $video->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
                     </div>
                 </div>
             @endforeach
@@ -229,7 +239,12 @@
                         <audio width="320" height="240" controls>
                             <source src="{{ '../audioFile/'.$audio->id }}" type="audio/mp3">
                             Your browser does not support the audio tag.
-                        </audio> 
+                        </audio>
+                        <deletebutton
+                            button="Delete audio"
+                            action="{{ route('audios.destroy', $audio->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
                     </div>
                 </div>
             @endforeach

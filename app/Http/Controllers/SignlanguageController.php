@@ -79,6 +79,7 @@ class SignlanguageController extends Controller
     {
         $signlanguage = Signlanguage::find($id);
         $section_id = $signlanguage->parent_id;
+        Storage::delete('uploads/signlanguage/'.$signlanguage->file);
         $signlanguage->delete();
         return redirect('/section/'.$section_id)->with('success','Signlanguage video deleted.');
     }

@@ -79,6 +79,7 @@ class VideoController extends Controller
     {
         $video = Video::find($id);
         $section_id = $video->parent_id;
+        Storage::delete('uploads/video/'.$video->file);
         $video->delete();
         return redirect('/section/'.$section_id)->with('success','Video deleted.');
     }

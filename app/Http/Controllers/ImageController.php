@@ -64,6 +64,7 @@ class ImageController extends Controller
             App('App\Http\Controllers\TextController')->destroy($text->id);
         }
         $section_id = $image->parent_id;
+        Storage::delete('uploads/images/'.$image->file);
         $image->delete();
         return redirect('/section/'.$section_id)->with('success','Image deleted.');
     }

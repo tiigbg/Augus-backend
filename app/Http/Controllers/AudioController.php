@@ -86,6 +86,7 @@ class AudioController extends Controller
     {
         $audio = Audio::find($id);
         $section_id = $audio->parent_id;
+        Storage::delete('uploads/audio/'.$audio->file);
         $audio->delete();
         return redirect('/section/'.$section_id)->with('success','Audio deleted.');
     }

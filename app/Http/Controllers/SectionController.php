@@ -70,7 +70,10 @@ class SectionController extends Controller
             App('App\Http\Controllers\SignlanguageController')->destroy($child->id);
         }
 
+        $parent_id = $section->parent_id;
     	$section->delete();
+        if($parent_id !== null)
+            return redirect('/section/'.$parent_id)->with('success','Section deleted.');
     	return redirect('exhibitions');
     }
 

@@ -10,8 +10,15 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-10">
+                    <a href="{{ '../imageFile/'.$image->id }}" class="thumbnail">
+                        <img src="{{ '../imageFile/'.$image->id }}" >
+                    </a>
+                </div>
+            </div>
             @foreach($texts as $text)
-                <h1>{{ $text->language }}:{{ $text->text }}</h1>
+                <p>{{ $text->language }}:{{ $text->text }}</p>
                 <deletetextbutton
                     button="Delete text"
                     action="{{ route('texts.destroy', $text->id) }}"
@@ -20,12 +27,12 @@
                 </deletetextbutton>
             @endforeach
             @if (sizeof($image->texts)==0)
-            <h1>
-                (untitled)
-            </h1>
+            <p>
+                (no description)
+            </p>
             @endif
             <addtextbutton
-                button="Add text"
+                button="Add description"
                 type="body"
                 text=""
                 language=""
@@ -35,12 +42,11 @@
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
 
-        	<deletebutton
+            <deletebutton
                 button="Delete image"
-        		action="{{ route('images.destroy', $image->id) }}"
-        		csrf_token="{{ csrf_token() }}" >
-    		</deletebutton>
+                action="{{ route('images.destroy', $image->id) }}"
+                csrf_token="{{ csrf_token() }}" >
+            </deletebutton>
         </div>
-        <img src="{{ '../imageFile/'.$image->id }}">
     </div>
 @endsection

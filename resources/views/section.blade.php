@@ -136,6 +136,7 @@
             <addfilebutton
                 button="Add image"
                 name="image_file"
+                language="sv"
                 action="{{ route('postimage') }}"
                 method="POST"
                 csrf_token="{{ csrf_token() }}"
@@ -144,6 +145,7 @@
             <addfilebutton
                 button="Add video"
                 name="video_file"
+                language="sv"
                 action="{{ route('videos.store') }}"
                 method="POST"
                 csrf_token="{{ csrf_token() }}"
@@ -153,6 +155,7 @@
             <addfilebutton
                 button="Add signlanguage video"
                 name="signlanguage_file"
+                language="sv"
                 action="{{ route('signlanguages.store') }}"
                 method="POST"
                 csrf_token="{{ csrf_token() }}"
@@ -162,6 +165,7 @@
             <addfilebutton
                 button="Add Audio"
                 name="audio_file"
+                language="sv"
                 action="{{ route('audios.store') }}"
                 method="POST"
                 csrf_token="{{ csrf_token() }}"

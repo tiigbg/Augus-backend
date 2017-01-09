@@ -17,7 +17,7 @@ class SectionController extends Controller
         $section = new Section;
 
         $section->parent_id = $request->parent_id;
-        $section->order = $this->getNewOrder();
+        $section->order = $this->getNewOrder($request->parent_id);
 
         $section->save();
         return back();
@@ -104,7 +104,7 @@ class SectionController extends Controller
     	}
     	else
     	{
-    		return Section::where('id','=', $parent_id)->max('order') + 1;
+    		return Section::where('id','=', $parent_id)->first()->children()->max('order') + 1;
     	}
     }
 }

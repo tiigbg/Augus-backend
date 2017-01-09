@@ -18,7 +18,7 @@ class CreateTextsTable extends Migration
             $table->integer('parent_id')->nullable();
             $table->enum('parent_type', ['section', 'image']);
             $table->enum('type', ['title', 'body']);
-            $table->string('text');
+            $table->string('text', 1000);
             $table->string('language');
             $table->timestamps();
             $table->unique( array('parent_id', 'parent_type','type', 'language') );

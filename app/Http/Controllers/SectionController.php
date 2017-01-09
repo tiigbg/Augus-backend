@@ -44,8 +44,32 @@ class SectionController extends Controller
     		$this->delete($new_request);
     	}
     	$section = Section::find($request->id);
-    	$titles = $section->titles()->get();
-    	// TODO delete all linked content
+        $titles = $section->titles()->get();
+        $texts = $section->texts()->get();
+        $images = $section->images()->get();
+        $audios = $section->audios()->get();
+        $videos = $section->videos()->get();
+    	$signlanguages = $section->signlanguages()->get();
+
+        foreach ($titles as $child) {
+            App('App\Http\Controllers\TextController')->destroy($child->id);
+        }
+        foreach ($texts as $child) {
+            App('App\Http\Controllers\TextController')->destroy($child->id);
+        }
+        foreach ($images as $child) {
+            App('App\Http\Controllers\ImageController')->destroy($child->id);
+        }
+        foreach ($videos as $child) {
+            App('App\Http\Controllers\VideoController')->destroy($child->id);
+        }
+        foreach ($audios as $child) {
+            App('App\Http\Controllers\AudioController')->destroy($child->id);
+        }
+        foreach ($signlanguages as $child) {
+            App('App\Http\Controllers\SignlanguageController')->destroy($child->id);
+        }
+
     	$section->delete();
     	return redirect('exhibitions');
     }

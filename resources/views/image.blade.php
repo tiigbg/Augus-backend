@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+
+    <a href="{{ '/section/'.$image->parent_id }}">&lt; Back</a>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             @foreach($texts as $text)

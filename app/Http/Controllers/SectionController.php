@@ -107,4 +107,16 @@ class SectionController extends Controller
     		return Section::where('id','=', $parent_id)->first()->children()->max('order') + 1;
     	}
     }
+
+    public function addColor(Request $request) {
+        if(isset($request->parent_id)) {
+            $section = Section::find($request->parent_id);
+            if(isset($request->color)) {
+                $section->color = $request->color;
+                $section->save();
+            }
+            echo "".$section->color;
+        }
+        return back();
+    }
 }

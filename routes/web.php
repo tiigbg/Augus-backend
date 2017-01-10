@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 	// create 
 	Route::post('newSection', 'SectionController@store')->name('newSection');
+	Route::post('addColor', 'SectionController@addColor')->name('addColor');
 
 	// update
 	Route::put('updateSection', 'SectionController@update')->name('updateSection');

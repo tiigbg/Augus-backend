@@ -30,6 +30,7 @@ const app = new Vue({
     	'newsectionbutton': require('./components/NewSectionButton.vue'),
     	'addtextbutton': require('./components/AddTextButton.vue'),
         'deletetextbutton': require('./components/DeleteTextButton.vue'),
-    	'addfilebutton': require('./components/AddFileButton.vue')
+        'addfilebutton': require('./components/AddFileButton.vue'),
+    	'addcolorbutton': require('./components/AddColorButton.vue')
     }
 });

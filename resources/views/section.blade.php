@@ -134,6 +134,14 @@
         		csrf_token="{{ csrf_token() }}" >
     		</newsectionbutton>
             
+            
+            <addcolorbutton
+                button="Set color"
+                action="{{ route('addColor') }}"
+                method="POST"
+                color="{{ $section->color }}"
+                parent_id="{{ $section->id }}"
+                csrf_token="{{ csrf_token() }}"></addcolorbutton>
             <addfilebutton
                 button="Add image"
                 name="image_file"

@@ -2,14 +2,15 @@
     
     <div>
         <span v-if="!editmode" v-on:click="editmode = !editmode">
-            <span v-bind:style="{ backgroundColor: dark_color, width: '15px', height:'15px', display:'inline-block' }"></span>
-            <span v-bind:style="{ backgroundColor: light_color, width: '15px', height:'15px', display:'inline-block' }"></span>
-            <button >{{button}}</button>
+            <button >
+                <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
+                {{button}}
+            </button>
         </span>
         <form v-if="editmode" v-bind:action="action" method="POST">
-            dark: <input type="text" name="dark_color" v-bind:value="dark_color"></input> 
+            dark: <input type="text" name="dark_color" v-bind:value="dark_color"></input> <br/>
             light: <input type="text" name="light_color" v-bind:value="light_color"></input> 
-            <input type="submit" name="submit" value="Add"/>
+            <input type="submit" name="submit" value="Save"/>
             <input type="reset" value="Cancel" v-on:click="editmode = !editmode"/>
             <input type="hidden" name="_token" v-bind:value="csrf_token">
             <input type="hidden" name="_method" v-bind:value="method">
@@ -41,6 +42,7 @@
                 type: String,
                 default: ''
             },
+            icon: String,
             parent_id: String,
             action: String,
             method: String,

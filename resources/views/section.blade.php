@@ -69,6 +69,8 @@
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
+            <span style="background-color: {{$section->dark_color}}; width: 30px; height:30px; display:inline-block"></span>
+            <span style="background-color: {{$section->light_color}}; width: 30px; height:30px; display:inline-block"></span>
         </div>
 
         <div class="panel-body">
@@ -129,14 +131,15 @@
                 @endforeach
             </ul>  
     		<newsectionbutton
+                icon="glyphicon glyphicon-th-list"
             	action="{{ route('newSection') }}"
         		parent_id="{{ $section->id }}"
         		csrf_token="{{ csrf_token() }}" >
     		</newsectionbutton>
             
-            
             <addcolorbutton
                 button="Set color"
+                icon="glyphicon glyphicon-adjust"
                 action="{{ route('addColors') }}"
                 method="POST"
                 dark_color="{{ $section->dark_color }}"
@@ -145,6 +148,7 @@
                 csrf_token="{{ csrf_token() }}"></addcolorbutton>
             <addfilebutton
                 button="Add image"
+                icon="glyphicon glyphicon-picture"
                 name="image_file"
                 language="sv"
                 action="{{ route('postimage') }}"
@@ -154,6 +158,7 @@
 
             <addfilebutton
                 button="Add video"
+                icon="glyphicon glyphicon-facetime-video"
                 name="video_file"
                 language="sv"
                 action="{{ route('videos.store') }}"
@@ -164,6 +169,7 @@
 
             <addfilebutton
                 button="Add signlanguage video"
+                icon="fa fa-sign-language"
                 name="signlanguage_file"
                 language="sv"
                 action="{{ route('signlanguages.store') }}"
@@ -174,6 +180,7 @@
 
             <addfilebutton
                 button="Add Audio"
+                icon="glyphicon glyphicon-headphones"
                 name="audio_file"
                 language="sv"
                 action="{{ route('audios.store') }}"

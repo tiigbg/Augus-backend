@@ -1,7 +1,11 @@
 <template>
     <div>
         <span v-if="!editmode" v-on:click="editmode = !editmode">
-            <button >{{button}}</button>
+            <button >
+                <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
+
+                {{button}}
+            </button>
         </span>
         <form v-if="editmode" v-bind:action="action" enctype="multipart/form-data" method="POST">
             <div class="row">
@@ -36,6 +40,7 @@
                 default: 'en'
             },
             button: String,
+            icon: String,
             name: String,
             parent_id: String,
             action: String,

@@ -1,9 +1,8 @@
 <template>
     <div>
         <span v-if="!editmode" v-on:click="editmode = !editmode">
-            <button >
+            <button class="addbutton btn btn-success">
                 <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
-
                 {{button}}
             </button>
         </span>
@@ -18,6 +17,7 @@
                     <input type="hidden" name="_method" v-bind:value="method">
                     <input type="hidden" name="parent_id" v-bind:value="parent_id">
                     <button type="submit" class="btn btn-success">Upload</button>
+                    <button type="reset" class="btn btn-default" v-on:click="editmode = !editmode">Cancel</button>
                 </div>
             </div>
         </form>

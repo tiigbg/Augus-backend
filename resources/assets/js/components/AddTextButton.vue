@@ -3,15 +3,15 @@
     <div>
         <span v-if="!editmode" v-on:click="editmode = !editmode">
             {{ text }}
-            <button >{{button}}</button>
+            <button class="btn btn-default">{{button}}</button>
         </span>
         <form v-if="editmode" v-bind:action="action" method="POST">
             <textarea name="text" v-bind:rows="rows" v-bind:cols="cols">{{ text }}</textarea> 
             <input type="hidden" name="type" v-bind:value="type" />
             <input type="hidden" name="parent_type" v-bind:value="parent_type" />
             <input type="text" name="language" v-bind:value="language" size="2"/>
-            <input type="submit" name="submit" value="Add"/>
-            <input type="reset" value="Cancel" v-on:click="editmode = !editmode"/>
+            <input type="submit" name="submit" value="Add" class="btn btn-success"/>
+            <input type="reset" value="Cancel" v-on:click="editmode = !editmode" class="btn btn-default"/>
             <input type="hidden" name="_token" v-bind:value="csrf_token">
             <input type="hidden" name="_method" v-bind:value="method">
             <input type="hidden" name="parent_id" v-bind:value="parent_id">

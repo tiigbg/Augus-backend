@@ -1,7 +1,7 @@
 <template>
 	<div>
 	    <form v-bind:action="action" method="POST">
-	    	<button type="submit">
+	    	<button type="submit" class="addbutton btn btn-success">
                 <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
                 Add section
             </button>

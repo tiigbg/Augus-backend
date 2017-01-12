@@ -26,16 +26,15 @@
                     </div>
                 </a>
             @endforeach
+            <div class="panel panel-default panel-striped">
+                <div class="panel-body">
+                    <form action="{{ route('newSection') }}" method="POST">
+                        <input type="submit" name="submit" value="Add new exhibition" class="btn btn-success"/>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Add new exhibition</div>
-        <div class="panel-body">
-            <form action="{{ route('newSection') }}" method="POST">
-                <input type="submit" name="submit" value="Add new exhibition"/>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            </form>
-        </div>
-    </div>
 @endsection

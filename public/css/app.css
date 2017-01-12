@@ -5779,4 +5779,10 @@ button.close {
   float: right;
   display: block; }
 
+.addbutton {
+  margin: 20px; }
+
+.panel-striped {
+  border-style: dashed; }
+
 /*# sourceMappingURL=app.css.map */

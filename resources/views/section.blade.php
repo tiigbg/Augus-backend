@@ -69,8 +69,17 @@
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
-            <span style="background-color: {{$section->dark_color}}; width: 30px; height:30px; display:inline-block"></span>
-            <span style="background-color: {{$section->light_color}}; width: 30px; height:30px; display:inline-block"></span>
+            <div>
+                <addcolorbutton
+                            button="Set color"
+                            icon="glyphicon glyphicon-adjust"
+                            action="{{ route('addColors') }}"
+                            method="POST"
+                            dark_color="{{ $section->dark_color }}"
+                            light_color="{{ $section->light_color }}"
+                            parent_id="{{ $section->id }}"
+                            csrf_token="{{ csrf_token() }}"></addcolorbutton>
+            </div>
         </div>
 
         <div class="panel-body">
@@ -129,65 +138,69 @@
 			            	</div>
 		            	</div>
                 @endforeach
+                <div class="panel panel-default panel-striped">
+                    <div class="panel-body">
+                        <newsectionbutton
+                                icon="glyphicon glyphicon-th-list"
+                                action="{{ route('newSection') }}"
+                                parent_id="{{ $section->id }}"
+                                csrf_token="{{ csrf_token() }}" >
+                            </newsectionbutton>
+                    </div>
+                </div>
             </ul>  
-    		<newsectionbutton
-                icon="glyphicon glyphicon-th-list"
-            	action="{{ route('newSection') }}"
-        		parent_id="{{ $section->id }}"
-        		csrf_token="{{ csrf_token() }}" >
-    		</newsectionbutton>
-            
-            <addcolorbutton
-                button="Set color"
-                icon="glyphicon glyphicon-adjust"
-                action="{{ route('addColors') }}"
-                method="POST"
-                dark_color="{{ $section->dark_color }}"
-                light_color="{{ $section->light_color }}"
-                parent_id="{{ $section->id }}"
-                csrf_token="{{ csrf_token() }}"></addcolorbutton>
-            <addfilebutton
-                button="Add image"
-                icon="glyphicon glyphicon-picture"
-                name="image_file"
-                language="sv"
-                action="{{ route('postimage') }}"
-                method="POST"
-                csrf_token="{{ csrf_token() }}"
-                parent_id="{{ $section->id }}"></addfilebutton>
 
-            <addfilebutton
-                button="Add video"
-                icon="glyphicon glyphicon-facetime-video"
-                name="video_file"
-                language="sv"
-                action="{{ route('videos.store') }}"
-                method="POST"
-                csrf_token="{{ csrf_token() }}"
-                parent_id="{{ $section->id }}"
-                language_enabled="true"></addfilebutton>
-
-            <addfilebutton
-                button="Add signlanguage video"
-                icon="fa fa-sign-language"
-                name="signlanguage_file"
-                language="sv"
-                action="{{ route('signlanguages.store') }}"
-                method="POST"
-                csrf_token="{{ csrf_token() }}"
-                parent_id="{{ $section->id }}"
-                language_enabled="true"></addfilebutton>
-
-            <addfilebutton
-                button="Add Audio"
-                icon="glyphicon glyphicon-headphones"
-                name="audio_file"
-                language="sv"
-                action="{{ route('audios.store') }}"
-                method="POST"
-                csrf_token="{{ csrf_token() }}"
-                parent_id="{{ $section->id }}"
-                language_enabled="true"></addfilebutton>
+            <div class="row">
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add image"
+                        icon="glyphicon glyphicon-picture"
+                        name="image_file"
+                        language="sv"
+                        action="{{ route('postimage') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"></addfilebutton>
+                </div>
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add video"
+                        icon="glyphicon glyphicon-facetime-video"
+                        name="video_file"
+                        language="sv"
+                        action="{{ route('videos.store') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"
+                        language_enabled="true"></addfilebutton>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add signlanguage video"
+                        icon="fa fa-sign-language"
+                        name="signlanguage_file"
+                        language="sv"
+                        action="{{ route('signlanguages.store') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"
+                        language_enabled="true"></addfilebutton>
+                </div>
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add Audio"
+                        icon="glyphicon glyphicon-headphones"
+                        name="audio_file"
+                        language="sv"
+                        action="{{ route('audios.store') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"
+                        language_enabled="true"></addfilebutton>
+                </div>
+            </div>
   
             <div class="row">
             @foreach($images as $image)

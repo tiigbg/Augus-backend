@@ -137,9 +137,10 @@
             
             <addcolorbutton
                 button="Set color"
-                action="{{ route('addColor') }}"
+                action="{{ route('addColors') }}"
                 method="POST"
-                color="{{ $section->color }}"
+                dark_color="{{ $section->dark_color }}"
+                light_color="{{ $section->light_color }}"
                 parent_id="{{ $section->id }}"
                 csrf_token="{{ csrf_token() }}"></addcolorbutton>
             <addfilebutton

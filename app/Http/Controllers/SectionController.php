@@ -108,14 +108,14 @@ class SectionController extends Controller
     	}
     }
 
-    public function addColor(Request $request) {
+    public function addColors(Request $request) {
         if(isset($request->parent_id)) {
             $section = Section::find($request->parent_id);
-            if(isset($request->color)) {
-                $section->color = $request->color;
+            if(isset($request->dark_color) && isset($request->light_color)) {
+                $section->dark_color = $request->dark_color;
+                $section->light_color = $request->light_color;
                 $section->save();
             }
-            echo "".$section->color;
         }
         return back();
     }

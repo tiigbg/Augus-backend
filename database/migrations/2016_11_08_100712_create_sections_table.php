@@ -17,7 +17,8 @@ class CreateSectionsTable extends Migration
             $table->increments('id');
             $table->integer('parent_id')->nullable();
             $table->integer('order');
-            $table->string('color')->nullable();
+            $table->string('dark_color')->nullable();
+            $table->string('light_color')->nullable();
             $table->string('icon')->nullable();
             $table->timestamps();
         });

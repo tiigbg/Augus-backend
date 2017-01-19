@@ -1,6 +1,5 @@
 <template>
     <span class="deletebutton">
-    <span v-bind:class="buttonicon" aria-hidden="true"></span>
         <button v-if="!sure" v-on:click="sure=true" class="btn btn-danger">
             <span v-if="icon" v-bind:class="icon" aria-hidden="true"></span>
             {{ button }}

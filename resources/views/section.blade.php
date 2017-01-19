@@ -172,7 +172,7 @@
                         method="POST"
                         csrf_token="{{ csrf_token() }}"
                         parent_id="{{ $section->id }}"
-                        language_enabled="true"></addfilebutton>
+                        v-bind:language_enabled="true"></addfilebutton>
                 </div>
             </div>
             <div class="row">
@@ -186,7 +186,7 @@
                         method="POST"
                         csrf_token="{{ csrf_token() }}"
                         parent_id="{{ $section->id }}"
-                        language_enabled="true"></addfilebutton>
+                        v-bind:language_enabled="true"></addfilebutton>
                 </div>
                 <div class="col-md-6">
                     <addfilebutton
@@ -198,7 +198,7 @@
                         method="POST"
                         csrf_token="{{ csrf_token() }}"
                         parent_id="{{ $section->id }}"
-                        language_enabled="true"></addfilebutton>
+                        v-bind:language_enabled="true"></addfilebutton>
                 </div>
             </div>
   

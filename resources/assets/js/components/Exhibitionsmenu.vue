@@ -1,9 +1,9 @@
 <template>
     <ul>
-        <li v-for="exhibition in exhibitions">
+        <li v-for="exhibition in exhibitions.exhibitions">
             <div>
             <a v-bind:href="'/section/'+exhibition.id">
-                <div v-for="title in exhibition.titles">
+                <div v-if="exhibition.titles" v-for="title in exhibition.titles" >
                     {{ title.language }}: {{ title.text }}
                 </div>
                 <div v-if="exhibition.titles.length==0">

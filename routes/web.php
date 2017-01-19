@@ -38,7 +38,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/exhibitions', function(){
 		$exhibitions = App\Section::whereNull('parent_id')->get();
 		return view('exhibitions')->with('exhibitions',$exhibitions);
-		#return $exhibitions;
 	})->name('exhibitions');
 
 

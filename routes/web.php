@@ -41,6 +41,11 @@ Route::group(['middleware' => ['auth']], function() {
 		return view('exhibitions')->with('exhibitions',$exhibitions);
 	})->name('exhibitions');
 
+	Route::get('/users', function(){
+		$users = App\User::All();
+		return view('users')->with('users',$users);
+	})->name('users');
+
 
 	Route::get('/exhibition/{exhibitionId}', function($exhibitionId){
 		$exhibition = App\Section::where('id', '=', $exhibitionId)->first();

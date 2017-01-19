@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Section;
 use App\Text;
+use App\Icon;
 use App\Image;
 use App\Audio;
 use App\Video;
@@ -44,12 +45,15 @@ class SectionController extends Controller
     		$this->delete($new_request);
     	}
     	$section = Section::find($request->id);
+        $icon = $section->sectionIcon()->get();
         $titles = $section->titles()->get();
         $texts = $section->texts()->get();
         $images = $section->images()->get();
         $audios = $section->audios()->get();
         $videos = $section->videos()->get();
     	$signlanguages = $section->signlanguages()->get();
+
+        App('App\Http\Controllers\IconController')->destroy($icon->id);
 
         foreach ($titles as $child) {
             App('App\Http\Controllers\TextController')->destroy($child->id);
@@ -85,6 +89,7 @@ class SectionController extends Controller
         return array(
             'nodes' => Section::all(),
             'texts' => Text::all(),
+            'icons' => Icon::all(),
             'images' => Image::all(),
             'audio' => Audio::all(),
             'video' => Video::all(),

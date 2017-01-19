@@ -69,16 +69,46 @@
                 action="{{ route('texts.store') }}"
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
-            <div>
-                <addcolorbutton
-                            button="Set color"
-                            icon="glyphicon glyphicon-adjust"
-                            action="{{ route('addColors') }}"
+            <div class="row">
+                <div class="col-md-12">
+                    <addcolorbutton
+                                button="Set color"
+                                icon="glyphicon glyphicon-adjust"
+                                action="{{ route('addColors') }}"
+                                method="POST"
+                                dark_color="{{ $section->dark_color }}"
+                                light_color="{{ $section->light_color }}"
+                                parent_id="{{ $section->id }}"
+                                csrf_token="{{ csrf_token() }}"></addcolorbutton>
+                </div>
+            </div>
+            <div class="row">
+                @if ($icon)
+                <div class="col-md-2">
+                    <a href="{{ '../iconFile/'.$icon->id }}" class="thumbnail">
+                        <img src="{{ '../iconFile/'.$icon->id }}">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                        <deletebutton
+                            button="Delete icon"
+                            action="{{ route('icons.destroy', $icon->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
+                </div>
+                @else
+                <div class="col-md-10">
+                    <addfilebutton
+                            button="Add icon"
+                            icon="glyphicon glyphicon-tower"
+                            name="icon_file"
+                            action="{{ route('posticon') }}"
                             method="POST"
-                            dark_color="{{ $section->dark_color }}"
-                            light_color="{{ $section->light_color }}"
+                            csrf_token="{{ csrf_token() }}"
                             parent_id="{{ $section->id }}"
-                            csrf_token="{{ csrf_token() }}"></addcolorbutton>
+                            v-bind:language_enabled="false"></addfilebutton>
+                </div>
+                @endif
             </div>
         </div>
 

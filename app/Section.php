@@ -41,6 +41,11 @@ class Section extends Model
         return $this->hasMany('App\Image', 'parent_id');
     }
 
+    public function sectionIcon()
+    {
+        return $this->hasOne('App\Icon', 'parent_id');
+    }
+
     public function parent()
     {
         return $this->belongsTo('App\Section', 'parent_id');

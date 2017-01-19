@@ -25,6 +25,7 @@ Route::get('profile', function () {
 Auth::routes();
 
 
+Route::get('iconFile/{id}','IconController@iconFile');
 Route::get('imageFile/{id}','ImageController@imageFile');
 Route::get('audioFile/{id}','AudioController@audioFile');
 Route::get('videoFile/{id}','VideoController@videoFile');
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth']], function() {
 		$section = App\Section::find($sectionId);
 		$data = [
 			'section' => $section,
+			'icon' => $section->sectionIcon,
 			'children' => $section->children,
 			'titles' => $section->titles,
 			'texts' => $section->texts,
@@ -74,11 +76,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::delete('deleteSection', 'SectionController@delete')->name('deleteSection');
 
 
-	Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
+	//Route::get('image-upload-with-validation',['as'=>'getimage','uses'=>'ImageController@getImage']);
     Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
+    Route::post('icon-upload-with-validation',['as'=>'posticon','uses'=>'IconController@postIcon']);
 
 
 	Route::resource('texts', 'TextController');
+    Route::resource('icons', 'IconController');
     Route::resource('images', 'ImageController');
     Route::resource('videos', 'VideoController');
     Route::resource('signlanguages', 'SignlanguageController');

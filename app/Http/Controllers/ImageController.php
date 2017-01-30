@@ -28,7 +28,8 @@ class ImageController extends Controller
         $image = Image::find($id);
         $data = [
             'image' => $image,
-            'texts' => $image->texts
+            'texts' => $image->texts,
+            'audios' => $image->audios
          ];
         return view('image', $data);
     }

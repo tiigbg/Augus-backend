@@ -23,7 +23,7 @@ class Section extends Model
 
     public function audios()
     {
-        return $this->hasMany('App\Audio', 'parent_id');
+        return $this->hasMany('App\Audio', 'parent_id')->where('parent_type','=','section');
     }
 
     public function videos()

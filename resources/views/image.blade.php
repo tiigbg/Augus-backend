@@ -42,6 +42,40 @@
                 csrf_token="{{ csrf_token() }}" 
                 method="POST"></addtextbutton>
 
+            audios: {{ sizeof($audios)}}
+            @foreach($audios as $audio)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            <a href="{{ route('audios.show', $audio->id) }}">
+                                {{$audio->language}}: {{$audio->file}}
+                            </a>
+                        </p>
+                        <audio width="320" height="240" controls>
+                            <source src="{{ '../audioFile/'.$audio->id }}" type="audio/mp3">
+                            Your browser does not support the audio tag.
+                        </audio>
+                        <deletebutton
+                            button="Delete audio"
+                            action="{{ route('audios.destroy', $audio->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
+                    </div>
+                </div>
+            @endforeach
+
+            <addfilebutton
+                button="Add Audio"
+                icon="glyphicon glyphicon-headphones"
+                name="audio_file"
+                language="sv"
+                action="{{ route('audios.store') }}"
+                method="POST"
+                csrf_token="{{ csrf_token() }}"
+                parent_id="{{ $image->id }}"
+                parent_type="image"
+                v-bind:language_enabled="true"></addfilebutton>
+
             <deletebutton
                 button="Delete image"
                 action="{{ route('images.destroy', $image->id) }}"

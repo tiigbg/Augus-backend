@@ -16,6 +16,7 @@ class CreateAudiosTable extends Migration
         Schema::create('audios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable();
+            $table->enum('parent_type', ['section', 'image']);
             $table->string('file')->nullable();
             $table->string('language');
             $table->timestamps();

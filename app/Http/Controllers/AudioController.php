@@ -73,6 +73,7 @@ class AudioController extends Controller
 
         $audio = new Audio;
         $audio->parent_id = $request->parent_id;
+        $audio->parent_type = $request->parent_type;
         $audio->language = $request->language;
         $audio->file = $audioName;
         $audio->save();

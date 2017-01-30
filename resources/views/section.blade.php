@@ -228,6 +228,7 @@
                         method="POST"
                         csrf_token="{{ csrf_token() }}"
                         parent_id="{{ $section->id }}"
+                        parent_type="section"
                         v-bind:language_enabled="true"></addfilebutton>
                 </div>
             </div>

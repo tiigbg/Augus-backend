@@ -11,6 +11,11 @@ class Image extends Model
         return $this->hasMany('App\Text', 'parent_id')->where('parent_type','=','image');
     }
 
+    public function audios()
+    {
+        return $this->hasMany('App\Audio', 'parent_id')->where('parent_type','=','image');
+    }
+
     public function parent()
     {
         return $this->belongsTo('App\Object', 'parent_id');

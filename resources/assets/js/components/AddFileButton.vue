@@ -16,6 +16,7 @@
                     <input type="hidden" name="_token" v-bind:value="csrf_token">
                     <input type="hidden" name="_method" v-bind:value="method">
                     <input type="hidden" name="parent_id" v-bind:value="parent_id">
+                    <input type="hidden" name="parent_type" v-if="parent_type" v-bind:value="parent_type" />
                     <button type="submit" class="btn btn-success">Upload</button>
                     <button type="reset" class="btn btn-default" v-on:click="editmode = !editmode">Cancel</button>
                 </div>
@@ -43,6 +44,7 @@
             icon: String,
             name: String,
             parent_id: String,
+            parent_type: String,
             action: String,
             csrf_token: String,
             method: String,

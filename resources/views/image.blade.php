@@ -16,6 +16,13 @@
                         <img src="{{ '../imageFile/'.$image->id }}" >
                     </a>
                 </div>
+                <div class="col-md-2">
+                    <deletebutton
+                        button="Delete image"
+                        action="{{ route('images.destroy', $image->id) }}"
+                        csrf_token="{{ csrf_token() }}" >
+                    </deletebutton>
+                </div>
             </div>
             @foreach($texts as $text)
                 <p>{{ $text->language }}:{{ $text->text }}</p>
@@ -75,12 +82,6 @@
                 parent_id="{{ $image->id }}"
                 parent_type="image"
                 v-bind:language_enabled="true"></addfilebutton>
-
-            <deletebutton
-                button="Delete image"
-                action="{{ route('images.destroy', $image->id) }}"
-                csrf_token="{{ csrf_token() }}" >
-            </deletebutton>
         </div>
     </div>
 @endsection

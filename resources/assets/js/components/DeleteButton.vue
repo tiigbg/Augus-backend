@@ -6,8 +6,8 @@
         </button>
         <form v-if="sure" v-bind:action="action" method="POST">
             Delete including all contents, are you sure?
-            <input type="submit" name="submit" value="Yes"></input>
-            <input type="reset" name="cancel" value="No" v-on:click="sure=false" />
+            <input type="submit" name="submit" value="Yes" class="btn btn-danger"></input>
+            <input type="reset" name="cancel" value="No" v-on:click="sure=false" class="btn btn-default" />
             <input type="hidden" name="_token" v-bind:value="csrf_token">
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="id" v-bind:value="sectionid">

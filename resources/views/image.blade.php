@@ -35,7 +35,7 @@
                 button="Add description"
                 type="body"
                 text=""
-                language=""
+                language="sv"
                 parent_id="{{ $image->id }}"
                 parent_type="image"
                 action="{{ route('texts.store') }}"

@@ -53,7 +53,10 @@ class SectionController extends Controller
         $videos = $section->videos()->get();
     	$signlanguages = $section->signlanguages()->get();
 
-        App('App\Http\Controllers\IconController')->destroy($icon->id);
+        if($icon != NULL && isset($icon->id))
+        {
+            App('App\Http\Controllers\IconController')->destroy($icon->id);
+        }
 
         foreach ($titles as $child) {
             App('App\Http\Controllers\TextController')->destroy($child->id);

@@ -22,6 +22,11 @@
                                 (untitled)
                             </div>
                             @endif
+                            @if ($exhibition->visibility=='visible')
+                            <button class="btn btn-primary pull-right">Published</button>
+                            @else
+                            <button class="btn btn-default pull-right">Hidden</button>
+                            @endif
                         </div>
                     </div>
                 </a>

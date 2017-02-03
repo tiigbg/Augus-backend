@@ -32,15 +32,26 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">
-            <div class="col-md-12">
-                <deletebutton
-                    button="Delete section"
-                    icon="glyphicon glyphicon-trash"
-                    action="{{ route('deleteSection') }}"
-                    sectionid="{{ $section->id }}"
-                    csrf_token="{{ csrf_token() }}" >
-                </deletebutton>
-            </div>
+                <div class="col-md-6">
+                    @if (!$section->parent_id)
+                    <visibilityswitch
+                        visibility="{{ $section->visibility }}"
+                        action="{{ route('updateSection') }}"
+                        id="{{ $section->id }}"
+                        csrf_token="{{ csrf_token() }}"
+                        method="PUT" >
+                    </visibilityswitch>
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    <deletebutton
+                        button="Delete section"
+                        icon="glyphicon glyphicon-trash"
+                        action="{{ route('deleteSection') }}"
+                        sectionid="{{ $section->id }}"
+                        csrf_token="{{ csrf_token() }}" >
+                    </deletebutton>
+                </div>
             </div>
             @foreach($titles as $title)
                 <h1>{{ $title->language }}:{{ $title->text }}

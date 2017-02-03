@@ -16,6 +16,7 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable();
+            $table->enum('visibility', ['visible', 'hidden']);
             $table->integer('order');
             $table->string('dark_color')->nullable();
             $table->string('light_color')->nullable();

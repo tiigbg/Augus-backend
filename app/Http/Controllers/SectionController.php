@@ -18,6 +18,7 @@ class SectionController extends Controller
         $section = new Section;
 
         $section->parent_id = $request->parent_id;
+        $section->visibility = "hidden";
         $section->order = $this->getNewOrder($request->parent_id);
 
         $section->save();
@@ -31,7 +32,10 @@ class SectionController extends Controller
     		$section->parent_id = $request->parent_id;
     	}
     	if(isset($request->order)) {
-    		$section->order = $request->order;
+            $section->order = $request->order;
+        }
+        if(isset($request->visibility)) {
+    		$section->visibility = $request->visibility;
     	}
     	$section->save();
         return back();

@@ -31,6 +31,7 @@ const app = new Vue({
     	'addtextbutton': require('./components/AddTextButton.vue'),
         'deletetextbutton': require('./components/DeleteTextButton.vue'),
         'addfilebutton': require('./components/AddFileButton.vue'),
-    	'addcolorbutton': require('./components/AddColorButton.vue')
+        'addcolorbutton': require('./components/AddColorButton.vue'),
+    	'visibilityswitch': require('./components/VisibilitySwitch.vue'),
     }
 });

@@ -23,7 +23,6 @@
             }
         },
         mounted() {
-            console.log('Component ready.');
             this.$http.get('/allexhibitions').then((response) => {
                 // success callback
                 this.exhibitions = response.body;

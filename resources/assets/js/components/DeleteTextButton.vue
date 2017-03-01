@@ -1,5 +1,4 @@
 <template>
-    
     <span class="deletetextbutton">
         <form v-bind:action="action" method="POST">
             <button type="submit" name="submit" class="btn btn-danger">
@@ -15,7 +14,6 @@
 <script>
     export default {
         mounted() {
-            console.log('Component ready.')
         },
         props: {
             button: {

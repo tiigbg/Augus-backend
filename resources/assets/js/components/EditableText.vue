@@ -24,7 +24,6 @@
             }
         },
         mounted() {
-            console.log('Component ready.')
         },
         props: ['name', 'value', 'sectionid', 'action', 'csrf_token', 'method']
     }

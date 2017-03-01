@@ -15,7 +15,6 @@
 	
     export default {
         mounted() {
-            console.log('Component ready.')
         },
         props: ['icon','parent_id','csrf_token', 'action']
     }

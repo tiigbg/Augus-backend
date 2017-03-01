@@ -31,7 +31,6 @@
             }
         },
         mounted() {
-            console.log('Component ready.')
         },
         props: {
             button: {

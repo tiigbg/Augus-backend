@@ -59,7 +59,8 @@ class SignlanguageController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'signlanguage_file' => 'required|mimes:mp4,avi,mov|max:50000',
+            //'signlanguage_file' => 'required|mimes:mp4,avi,mov|max:50000',
+            'signlanguage_file' => 'required|max:50000',
         ]);
         $signlanguageName = time().'.'.$request->signlanguage_file->getClientOriginalExtension();
         $request->signlanguage_file->move(storage_path('app/uploads/signlanguage'), $signlanguageName);

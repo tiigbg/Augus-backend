@@ -7693,7 +7693,7 @@ button.close {
 }
 
 .deletetextbutton {
-  float: right;
+  /*float:right;*/
 }
 
 .deletetextbutton form {

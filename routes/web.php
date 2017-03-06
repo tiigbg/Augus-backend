@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 	Route::resource('texts', 'TextController');
-    Route::resource('icons', 'IconController');
+    Route::resource('iconz', 'IconController');
     Route::resource('images', 'ImageController');
     Route::resource('videos', 'VideoController');
     Route::resource('signlanguages', 'SignlanguageController');

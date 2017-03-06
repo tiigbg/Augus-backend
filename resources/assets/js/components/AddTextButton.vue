@@ -43,7 +43,7 @@
             },
             language: {
                 type: String,
-                default: 'en'
+                default: 'sv'
             },
             rows: {
                 type: String,

@@ -29,7 +29,8 @@ class IconController extends Controller
         $data = [
             'icon' => $icon
          ];
-        return view('icon', $data);
+         echo $icon;
+        //return view('icon', $data);
     }
     /**
     * Manage Post Request

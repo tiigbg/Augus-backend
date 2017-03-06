@@ -114,7 +114,8 @@
                 <div class="col-md-3">
                         <deletebutton
                             button="Delete icon"
-                            action="{{ route('icons.destroy', $icon->id) }}"
+                            method="POST"
+                            action="{{ route('iconz.destroy', $icon->id) }}"
                             csrf_token="{{ csrf_token() }}" >
                         </deletebutton>
                 </div>

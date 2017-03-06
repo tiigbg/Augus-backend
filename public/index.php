@@ -47,6 +47,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
+ini_set('upload_max_filesize', '500M');
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

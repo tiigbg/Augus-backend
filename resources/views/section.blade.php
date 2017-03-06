@@ -54,7 +54,18 @@
                 </div>
             </div>
             @foreach($titles as $title)
-                <h1>{{ $title->language }}:{{ $title->text }}
+                <h1>
+                <editabletext
+                    value="{{ $title->text }}"
+                    language="{{ $title->language }}"
+                    id="{{ $title->id }}"
+                    rows="1"
+                    cols="30"
+                    action="{{ route('texts.update', $title->id) }}"
+                    csrf_token="{{ csrf_token() }}"
+                    parent_type="{{ $title->parent_type }}"
+                    method="PUT"
+                    ></editabletext>
                 <deletetextbutton
                     button=""
                     icon="glyphicon glyphicon-trash"
@@ -125,7 +136,17 @@
 
         <div class="panel-body">
             @foreach($texts as $text)
-                <div>{{ $text->language }}:{{ $text->text }}</div>
+                <editabletext
+                    value="{{ $text->text }}"
+                    language="{{ $text->language }}"
+                    id="{{ $text->id }}"
+                    rows="20"
+                    cols="100"
+                    action="{{ route('texts.update', $text->id) }}"
+                    csrf_token="{{ csrf_token() }}"
+                    parent_type="{{ $text->parent_type }}"
+                    method="PUT"
+                    ></editabletext>
                 <deletetextbutton
                     button=""
                     icon="glyphicon glyphicon-trash"

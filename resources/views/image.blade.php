@@ -25,13 +25,25 @@
                 </div>
             </div>
             @foreach($texts as $text)
-                <p>{{ $text->language }}:{{ $text->text }}</p>
+                <p>
+                <editabletext
+                    value="{{ $text->text }}"
+                    language="{{ $text->language }}"
+                    id="{{ $text->id }}"
+                    rows="20"
+                    cols="100"
+                    action="{{ route('texts.update', $text->id) }}"
+                    csrf_token="{{ csrf_token() }}"
+                    parent_type="{{ $text->parent_type }}"
+                    method="PUT"
+                    ></editabletext>
                 <deletetextbutton
                     button="Delete text"
                     action="{{ route('texts.destroy', $text->id) }}"
                     csrf_token="{{ csrf_token() }}" 
                     method="DELETE">
                 </deletetextbutton>
+                </p>
             @endforeach
             @if (sizeof($image->texts)==0)
             <p>

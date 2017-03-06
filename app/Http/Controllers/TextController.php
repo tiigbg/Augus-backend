@@ -77,9 +77,33 @@ class TextController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $text = Text::find($request->id);
+
+        if(isset($request->parent_id))
+        {
+            $text->parent_id = $request->parent_id;
+        }
+        if(isset($request->parent_type))
+        {
+            $text->parent_type = $request->parent_type;
+        }
+        if(isset($request->type))
+        {
+            $text->type = $request->type;
+        }
+        if(isset($request->language))
+        {
+            $text->language = $request->language;
+        }
+        if(isset($request->text))
+        {
+            $text->text = $request->text;
+        }
+
+        $text->save();
+        return back();
     }
 
     /**

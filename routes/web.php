@@ -17,9 +17,7 @@ Route::get('/allexhibitions', 'SectionController@getAllExhibitions');
 
 Route::get('/alldata', 'SectionController@getAllData');
 
-Route::get('profile', function () {
-    // Only authenticated users may enter...
-})->middleware('auth');
+
 
 
 Auth::routes();
@@ -36,6 +34,10 @@ Route::group(['middleware' => ['auth']], function() {
 	
 	Route::get('/', 'HomeController@index');
 	
+	Route::get('profile', function () {
+    	// TODO
+	});
+
 	Route::get('/exhibitions', function(){
 		$exhibitions = App\Section::whereNull('parent_id')->get();
 		return view('exhibitions')->with('exhibitions',$exhibitions);

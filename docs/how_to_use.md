@@ -31,7 +31,7 @@ Klicka på (untitled) för att gå in till utställningen du just skapade. Det h
  
 Lägg till titel
 ---------------
-Tryck på knappen Add title som du hittar precis under (untitled). I stora textfältet som kommer upp skriver du in utställningens titel. Andra textfältet, där det står sv, handlar om vilket språk den här titeln är på. Här används tvåbokstavskombination, som sv för svenska, en för engelska osv. Tryck på Add för att lägga till titeln.
+Tryck på knappen Add title som du hittar precis under (untitled). I stora textfältet som kommer upp skriver du in utställningens titel. Andra textfältet, där det står sv, handlar om vilket språk den här titeln är på. Här används [tvåbokstavskombination](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes#Partial_ISO_639_table "Wikipedia ISO_639"), som sv för svenska, en för engelska osv. Tryck på Add för att lägga till titeln.
 För att lägga till en titel i ett annat språk trycker du en gång till på Add titel och skriver in en titel. Ändra sv till den bokstavskombination som tillhör språket, till exempel en för engelska, och tryck Add. 
  
 Lägg till text

@@ -137,24 +137,26 @@
 
         <div class="panel-body">
             @foreach($texts as $text)
-                <editabletext
-                    value="{{ $text->text }}"
-                    language="{{ $text->language }}"
-                    id="{{ $text->id }}"
-                    rows="20"
-                    cols="100"
-                    action="{{ route('texts.update', $text->id) }}"
-                    csrf_token="{{ csrf_token() }}"
-                    parent_type="{{ $text->parent_type }}"
-                    method="PUT"
-                    ></editabletext>
-                <deletetextbutton
-                    button=""
-                    icon="glyphicon glyphicon-trash"
-                    action="{{ route('texts.destroy', $text->id) }}"
-                    csrf_token="{{ csrf_token() }}" 
-                    method="DELETE">
-                </deletetextbutton>
+                <div>
+                    <editabletext
+                        value="{{ $text->text }}"
+                        language="{{ $text->language }}"
+                        id="{{ $text->id }}"
+                        rows="20"
+                        cols="100"
+                        action="{{ route('texts.update', $text->id) }}"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_type="{{ $text->parent_type }}"
+                        method="PUT"
+                        ></editabletext>
+                    <deletetextbutton
+                        button=""
+                        icon="glyphicon glyphicon-trash"
+                        action="{{ route('texts.destroy', $text->id) }}"
+                        csrf_token="{{ csrf_token() }}" 
+                        method="DELETE">
+                    </deletetextbutton>
+                </div>
             @endforeach
             <addtextbutton
                 button="Add description"

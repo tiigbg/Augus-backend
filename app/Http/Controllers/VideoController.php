@@ -59,7 +59,7 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'video_file' => 'required|mimes:mp4,avi|max:50000',
+            'video_file' => 'required|mimes:mp4,avi|max:200000',
         ]);
         $videoName = time().'.'.$request->video_file->getClientOriginalExtension();
         $request->video_file->move(storage_path('app/uploads/video'), $videoName);

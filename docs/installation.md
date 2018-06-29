@@ -28,3 +28,21 @@ folders:
 
 Add this to your computers host file. Run notepad as administrator, and edit the host file at c:/windows/system32/drivers/etc
 192.168.10.10  homestead.app
+
+
+Create an account via the register button.
+After creating the backend, uploading files won't work yet. Follow these steps:
+
+You need to create folders for all content types (images audio etc)
+mkdir images
+mkdir audio
+mkdir icons
+mkdir signlanguage
+mkdir video
+
+Then you need to set the permission on those 
+sudo chown :www-data images
+sudo chown :www-data audio
+sudo chown :www-data icons
+sudo chown :www-data signlanguage
+sudo chown :www-data video

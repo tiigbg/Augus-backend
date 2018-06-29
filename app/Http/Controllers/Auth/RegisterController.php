@@ -62,8 +62,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // FIXME very ugly hack to close registration for now
-        return;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

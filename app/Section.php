@@ -41,6 +41,16 @@ class Section extends Model
         return $this->hasMany('App\Image', 'parent_id');
     }
 
+    public function meshes()
+    {
+        return $this->hasMany('App\Mesh', 'parent_id');
+    }
+
+    public function triggerMarkers()
+    {
+        return $this->hasMany('App\TriggerMarker', 'parent_id');
+    }
+
     public function sectionIcon()
     {
         return $this->hasOne('App\Icon', 'parent_id');

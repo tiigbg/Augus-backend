@@ -267,6 +267,31 @@
                         v-bind:language_enabled="true"></addfilebutton>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add mesh"
+                        icon="fa fa-cube"
+                        name="mesh_file"
+                        action="{{ route('meshes.store') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"
+                        v-bind:language_enabled="false"></addfilebutton>
+                </div>
+                <div class="col-md-6">
+                    <addfilebutton
+                        button="Add trigger marker"
+                        icon="fa fa-qrcode"
+                        name="trigger_marker_file"
+                        action="{{ route('triggerMarkers.store') }}"
+                        method="POST"
+                        csrf_token="{{ csrf_token() }}"
+                        parent_id="{{ $section->id }}"
+                        parent_type="section"
+                        v-bind:language_enabled="false"></addfilebutton>
+                </div>
+            </div>
   
             <div class="row">
             @foreach($images as $image)
@@ -343,6 +368,32 @@
                     </div>
                 </div>
             @endforeach
+
+            meshes: {{ sizeof($meshes)}}
+            @foreach($meshes as $mesh)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            {{$mesh->file}}
+                        </p>
+                        <deletebutton
+                            button="Delete mesh"
+                            action="{{ route('meshes.destroy', $mesh->id) }}"
+                            csrf_token="{{ csrf_token() }}" >
+                        </deletebutton>
+                    </div>
+                </div>
+            @endforeach
+
+            <div class="row">
+            @foreach($triggerMarkers as $triggerMarker)
+                <div class="col-xs-6 col-md-3">
+                    <a href="{{ route('triggerMarkers.show', $triggerMarker->id) }}" class="thumbnail">
+                        <img src="{{ '../triggerMarkerFile/'.$triggerMarker->id }}">
+                    </a>
+                </div>
+            @endforeach
+            </div>
         </div>
     </div>
 @endsection

@@ -10,6 +10,8 @@ use App\Image;
 use App\Audio;
 use App\Video;
 use App\Signlanguage;
+use App\Mesh;
+use App\TriggerMarker;
 
 class SectionController extends Controller
 {
@@ -56,6 +58,8 @@ class SectionController extends Controller
         $audios = $section->audios()->get();
         $videos = $section->videos()->get();
     	$signlanguages = $section->signlanguages()->get();
+    	$meshes = $section->meshes()->get();
+    	$triggerMarkers = $section->triggerMarkers()->get();
 
         if($icon != NULL && isset($icon->id))
         {
@@ -75,10 +79,16 @@ class SectionController extends Controller
             App('App\Http\Controllers\VideoController')->destroy($child->id);
         }
         foreach ($audios as $child) {
-            App('App\Http\Controllers\AudioController')->destroy($child->id);
+            App('AtriggerMarkersollers\AudioController')->destroy($child->id);
         }
         foreach ($signlanguages as $child) {
             App('App\Http\Controllers\SignlanguageController')->destroy($child->id);
+        }
+        foreach ($meshes as $child) {
+            App('App\Http\Controllers\MeshController')->destroy($child->id);
+        }
+        foreach ($triggermarkers as $child) {
+            App('App\Http\Controllers\TriggerMarkerController')->destroy($child->id);
         }
 
         $parent_id = $section->parent_id;
@@ -101,6 +111,8 @@ class SectionController extends Controller
             'audio' => Audio::all(),
             'video' => Video::all(),
             'signlanguages' => Signlanguage::all(),
+            'meshes' => Mesh::all(),
+            'triggerMarkers' => TriggerMarker::all(),
             );
     }
 

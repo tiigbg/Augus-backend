@@ -27,6 +27,8 @@ Route::get('iconFile/{id}','IconController@iconFile');
 Route::get('imageFile/{id}','ImageController@imageFile');
 Route::get('audioFile/{id}','AudioController@audioFile');
 Route::get('videoFile/{id}','VideoController@videoFile');
+Route::get('meshFile/{id}','MeshController@meshFile');
+Route::get('triggerMarkerFile/{id}','TriggerMarkerController@triggerMarkerFile');
 Route::get('signlanguageFile/{id}','SignlanguageController@signlanguageFile');
 
 
@@ -64,13 +66,14 @@ Route::group(['middleware' => ['auth']], function() {
 			'titles' => $section->titles,
 			'texts' => $section->texts,
 			'images' => $section->images,
-			'videos' => $section->videos,
-			'audios' => $section->audios,
 			'signlanguages' => $section->signlanguages,
+			'meshes' => $section->meshes,
+			'triggerMarkers' => $section->triggerMarkers,
+			'audios' => $section->audios,
+			'videos' => $section->videos,
 		 ];
 		return view('section', $data);
 	});
-
 
 	// create 
 	Route::post('newSection', 'SectionController@store')->name('newSection');
@@ -89,9 +92,13 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 	Route::resource('texts', 'TextController');
-    Route::resource('iconz', 'IconController');
+    Route::resource('audios', 'AudioController');
+    Route::resource('meshes', 'MeshController');
+    Route::resource('triggerMarkers', 'TriggerMarkerController');
     Route::resource('images', 'ImageController');
     Route::resource('videos', 'VideoController');
     Route::resource('signlanguages', 'SignlanguageController');
     Route::resource('audios', 'AudioController');
+    Route::resource('meshes', 'MeshController', ['except' => ['show']]);
+    Route::resource('triggerMarkers', 'TriggerMarkerController');
 });

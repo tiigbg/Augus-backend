@@ -36,8 +36,8 @@ ADD dockerdeployment/env-docker ./.env
 
 # Update php config
 RUN echo "extension=php_mbstring.dll" >> /etc/php/7.0/apache2/php.ini
-RUN echo "upload_max_filesize = 100M" >> /etc/php/7.0/apache2/php.ini
-RUN echo "post_max_size = 100M" >> /etc/php/7.0/apache2/php.ini
+RUN echo "upload_max_filesize = 1000M" >> /etc/php/7.0/apache2/php.ini
+RUN echo "post_max_size = 1000M" >> /etc/php/7.0/apache2/php.ini
 
 # Install composer deps
 RUN /usr/local/bin/composer install

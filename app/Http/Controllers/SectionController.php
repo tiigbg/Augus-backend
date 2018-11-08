@@ -87,7 +87,7 @@ class SectionController extends Controller
         foreach ($meshes as $child) {
             App('App\Http\Controllers\MeshController')->destroy($child->id);
         }
-        foreach ($triggermarkers as $child) {
+        foreach ($triggerMarkers as $child) {
             App('App\Http\Controllers\TriggerMarkerController')->destroy($child->id);
         }
 

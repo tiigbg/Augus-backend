@@ -90,7 +90,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('image-upload-with-validation',['as'=>'postimage','uses'=>'ImageController@postImage']);
     Route::post('icon-upload-with-validation',['as'=>'posticon','uses'=>'IconController@postIcon']);
 
-
+    Route::resource('iconz', 'IconController');
 	Route::resource('texts', 'TextController');
     Route::resource('audios', 'AudioController');
     Route::resource('meshes', 'MeshController');
